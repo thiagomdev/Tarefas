@@ -6,6 +6,7 @@ protocol MainViewModelProtocol: AnyObject {
 
 final class MainViewModel {
     private var model: [String]
+    
     weak var delegate: MainViewModelProtocol?
     
     init(model: [String]) {
@@ -24,15 +25,15 @@ final class MainViewModel {
         model.append(items)
     }
     
-    func displayDetailView() {
-        delegate?.goToDetatilView()
-    }
-    
     func display(_ items: [String]) {
         model = items
     }
     
     func returnedItems() -> [String] {
         return model
+    }
+    
+    func displayDetailView() {
+        delegate?.goToDetatilView()
     }
 }

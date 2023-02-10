@@ -13,7 +13,6 @@ final class MainViewController: UIViewController {
         table.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
         table.dataSource = self
         table.delegate = self
-        table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
     
@@ -88,7 +87,7 @@ extension MainViewController: ViewConfiguration {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.turnOn([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
