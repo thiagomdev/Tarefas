@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,142 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA8492162996CE4600337C42 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AA8492182996CE9D00337C42 /* Core */,
+				AA8492192996CEC500337C42 /* Scene */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		AA8492172996CE6900337C42 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B2F299168C500C48427 /* TodoModel.swift */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		AA8492182996CE9D00337C42 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B33299169F700C48427 /* Shared */,
+				AA8492172996CE6900337C42 /* Domain */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		AA8492192996CEC500337C42 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AA84921A2996CED600337C42 /* Main */,
+				AA84921B2996CEDF00337C42 /* Detail */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		AA84921A2996CED600337C42 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AA84921F2996CF0100337C42 /* Domain */,
+				AA84921E2996CEFE00337C42 /* Service */,
+				AA84921D2996CEFB00337C42 /* Presentation */,
+				AA84921C2996CEF700337C42 /* UI */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AA84921B2996CEDF00337C42 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				AA8492232996CF4C00337C42 /* Domain */,
+				AA8492222996CF4900337C42 /* Service */,
+				AA8492212996CF4600337C42 /* Presentation */,
+				AA8492202996CF4300337C42 /* UI */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		AA84921C2996CEF700337C42 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B3629916B8F00C48427 /* MainTableViewCell.swift */,
+				AADF3B1A2991678A00C48427 /* MainViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		AA84921D2996CEFB00337C42 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B31299169CE00C48427 /* MainViewModel.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		AA84921E2996CEFE00337C42 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		AA84921F2996CF0100337C42 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		AA8492202996CF4300337C42 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B3B2991719200C48427 /* DetailViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		AA8492212996CF4600337C42 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B3D2991769200C48427 /* DetailViewModel.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		AA8492222996CF4900337C42 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		AA8492232996CF4C00337C42 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		AA8492242996CFAA00337C42 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B162991678A00C48427 /* AppDelegate.swift */,
+			);
+			name = Start;
+			sourceTree = "<group>";
+		};
+		AA8492252996CFB600337C42 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AADF3B1F2991678C00C48427 /* Assets.xcassets */,
+				AADF3B212991678C00C48427 /* LaunchScreen.storyboard */,
+				AADF3B242991678C00C48427 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		AADF3B0A2991678A00C48427 = {
 			isa = PBXGroup;
 			children = (
@@ -64,59 +200,11 @@
 		AADF3B152991678A00C48427 /* TODO */ = {
 			isa = PBXGroup;
 			children = (
-				AADF3B2A2991681000C48427 /* Commons */,
-				AADF3B33299169F700C48427 /* Shared */,
-				AADF3B2B2991681D00C48427 /* Modules */,
+				AA8492162996CE4600337C42 /* Features */,
+				AA8492242996CFAA00337C42 /* Start */,
+				AA8492252996CFB600337C42 /* SupportingFiles */,
 			);
 			path = TODO;
-			sourceTree = "<group>";
-		};
-		AADF3B2A2991681000C48427 /* Commons */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B162991678A00C48427 /* AppDelegate.swift */,
-				AADF3B1F2991678C00C48427 /* Assets.xcassets */,
-				AADF3B212991678C00C48427 /* LaunchScreen.storyboard */,
-				AADF3B242991678C00C48427 /* Info.plist */,
-			);
-			name = Commons;
-			sourceTree = "<group>";
-		};
-		AADF3B2B2991681D00C48427 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B2D2991682B00C48427 /* MainView */,
-				AADF3B2C2991682600C48427 /* DetailView */,
-				AADF3B2E299168B600C48427 /* Model */,
-				AADF3B3829916BEA00C48427 /* Cell */,
-			);
-			name = Modules;
-			sourceTree = "<group>";
-		};
-		AADF3B2C2991682600C48427 /* DetailView */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B3D2991769200C48427 /* DetailViewModel.swift */,
-				AADF3B3B2991719200C48427 /* DetailViewController.swift */,
-			);
-			name = DetailView;
-			sourceTree = "<group>";
-		};
-		AADF3B2D2991682B00C48427 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B31299169CE00C48427 /* MainViewModel.swift */,
-				AADF3B1A2991678A00C48427 /* MainViewController.swift */,
-			);
-			name = MainView;
-			sourceTree = "<group>";
-		};
-		AADF3B2E299168B600C48427 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B2F299168C500C48427 /* TodoModel.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		AADF3B33299169F700C48427 /* Shared */ = {
@@ -125,14 +213,6 @@
 				AADF3B3429916A0800C48427 /* ViewConfiguration.swift */,
 			);
 			name = Shared;
-			sourceTree = "<group>";
-		};
-		AADF3B3829916BEA00C48427 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				AADF3B3629916B8F00C48427 /* MainTableViewCell.swift */,
-			);
-			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +251,7 @@
 				};
 			};
 			buildConfigurationList = AADF3B0E2991678A00C48427 /* Build configuration list for PBXProject "TODO" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -280,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -334,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,6 +438,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +466,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

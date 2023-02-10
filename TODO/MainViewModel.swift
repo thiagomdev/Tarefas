@@ -5,27 +5,38 @@ protocol MainViewModelProtocol: AnyObject {
 }
 
 final class MainViewModel {
-    var model: TodoModel
-    
+    private var model: [String]
     weak var delegate: MainViewModelProtocol?
     
-    var count: Int {
-        return model.items.count
-    }
-    
-    var items: [String] {
-        return model.items
-    }
-    
-    init(model: TodoModel) {
+    init(model: [String]) {
         self.model = model
     }
     
+    var count: Int {
+        return model.count
+    }
+    
+    func remove(at index: IndexPath) {
+        model.remove(at: index.row)
+    }
+
+//    var items: [String] {
+//        return model
+//    }
+    
     func getItems(_ items: String) {
-        model.items.append(items)
+        model.append(items)
     }
     
     func displayDetailView() {
         delegate?.goToDetatilView()
+    }
+    
+    func display(_ items: [String]) {
+        model = items
+    }
+    
+    func items() -> [String] {
+        return model
     }
 }

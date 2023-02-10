@@ -45,16 +45,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell
         cell?.selectionStyle = .none
-        cell?.setup(from: viewModel.model.items[indexPath.row])
+        cell?.setup(from: viewModel.items()[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             DispatchQueue.main.async {
-                self.viewModel.model.items.remove(at: indexPath.row)
+                self.viewModel.remove(at: indexPath)
                 self.tableView.deleteRows(at: [indexPath], with: .bottom)
-                UserDefaults.standard.set(self.viewModel.model.items, forKey: "items")
+                UserDefaults.standard.set(self.viewModel.items(), forKey: "items")
                 self.tableView.reloadData()
             }
         }
@@ -101,6 +101,6 @@ extension MainViewController: ViewConfiguration {
         navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .add, target: self, action: #selector(addItemPressed))
         view.backgroundColor = .systemBackground
         viewModel.delegate = self
-        viewModel.model.items = UserDefaults.standard.stringArray(forKey: "items") ?? []
+        viewModel.display(UserDefaults.standard.stringArray(forKey: "items") ?? [])
     }
 }
