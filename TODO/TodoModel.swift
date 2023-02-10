@@ -1,5 +1,5 @@
 import Foundation
 
 struct TodoModel {
-    var items: [String]
+    var items: String
 }
