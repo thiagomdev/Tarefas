@@ -37,12 +37,16 @@ final class DetailViewController: UIViewController {
     @objc
     private func didAddItemButton() {
         guard let items = addTaskTextField.text else  { return }
-        if items.isEmpty {
-            showAlert()
-        } else {
-            viewModel.save(items: items)
-            navigationController?.popToRootViewController(animated: true)
+        
+        viewModel.showAlert = { [weak self] in
+            self?.showAlert()
         }
+        
+        viewModel.back = {
+            self.navigationController?.popViewController(animated: true)
+        }
+
+        viewModel.displayResult(items: items)
     }
     
     private func showAlert() {

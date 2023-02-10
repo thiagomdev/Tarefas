@@ -7,7 +7,17 @@ protocol DetailViewModelProtocol: AnyObject {
 final class DetailViewModel {
     weak var delegate: DetailViewModelProtocol?
     
-    func save(items: String) {
-        delegate?.getItems(items)
+    private var items: String?
+    
+    var showAlert: (() -> Void)?
+    var back: (() -> Void)?
+    
+    func displayResult(items: String) {
+        if items.isEmpty {
+            showAlert?()
+        } else {
+            delegate?.getItems(items)
+            back?()
+        }
     }
 }
