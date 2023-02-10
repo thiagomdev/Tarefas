@@ -20,7 +20,7 @@ final class MainViewModel {
         model.remove(at: index.row)
     }
 
-    func getItems(_ items: String) {
+    func defaultItems(_ items: String) {
         model.append(items)
     }
     

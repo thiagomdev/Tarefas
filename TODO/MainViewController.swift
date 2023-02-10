@@ -67,7 +67,7 @@ extension MainViewController: DetailViewModelProtocol {
             var currentItem = UserDefaults.standard.stringArray(forKey: "items") ?? []
             currentItem.append(item)
             UserDefaults.standard.set(currentItem, forKey: "items")
-            self.viewModel.getItems(item)
+            self.viewModel.defaultItems(item)
             self.tableView.reloadData()
         }
     }
