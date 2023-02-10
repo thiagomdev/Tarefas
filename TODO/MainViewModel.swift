@@ -32,7 +32,7 @@ final class MainViewModel {
         model = items
     }
     
-    func items() -> [String] {
+    func returnedItems() -> [String] {
         return model
     }
 }

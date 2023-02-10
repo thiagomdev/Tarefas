@@ -45,7 +45,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell
         cell?.selectionStyle = .none
-        cell?.setup(from: viewModel.items()[indexPath.row])
+        cell?.setup(from: viewModel.returnedItems()[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
@@ -54,7 +54,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 self.viewModel.remove(at: indexPath)
                 self.tableView.deleteRows(at: [indexPath], with: .bottom)
-                UserDefaults.standard.set(self.viewModel.items(), forKey: "items")
+                UserDefaults.standard.set(self.viewModel.returnedItems(), forKey: "items")
                 self.tableView.reloadData()
             }
         }
