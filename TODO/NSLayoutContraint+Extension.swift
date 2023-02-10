@@ -22,8 +22,7 @@ extension NSLayoutConstraint {
             if secondGuide?.owningView?.superview != nil {
                 secondGuide?.owningView?.translatesAutoresizingMaskIntoConstraints = false
             }
-            
-            NSLayoutConstraint.activate(constraints)
         }
+        NSLayoutConstraint.activate(constraints)
     }
 }
