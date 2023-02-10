@@ -37,18 +37,25 @@ final class DetailViewController: UIViewController {
     @objc
     private func didAddItemButton() {
         guard let items = addTaskTextField.text else  { return }
-        if items.isEmpty {
-            showAlert()
-        } else {
-            viewModel.save(items: items)
-            navigationController?.popToRootViewController(animated: true)
+        showAlert()
+        pop()
+        viewModel.displayResult(items: items)
+    }
+}
+
+extension DetailViewController {
+    private func showAlert() {
+        viewModel.showAlert = { [weak self] in
+            let alert = UIAlertController(title: "Hey!!\n🤭", message: "VOCÊ PRECISA ADICIONAR,\nTAREFAS NA LISTA.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self?.present(alert, animated: true)
         }
     }
     
-    private func showAlert() {
-        let alert = UIAlertController(title: "Hey!!\n🤭", message: "VOCÊ PRECISA ADICIONAR,\nTAREFAS NA LISTA.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+    private func pop() {
+        viewModel.back = {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
