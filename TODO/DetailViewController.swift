@@ -41,7 +41,9 @@ final class DetailViewController: UIViewController {
         pop()
         viewModel.displayResult(items: items)
     }
-    
+}
+
+extension DetailViewController {
     private func showAlert() {
         viewModel.showAlert = { [weak self] in
             let alert = UIAlertController(title: "Hey!!\n🤭", message: "VOCÊ PRECISA ADICIONAR,\nTAREFAS NA LISTA.", preferredStyle: .alert)
