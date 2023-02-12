@@ -63,7 +63,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: DetailViewModelProtocol {
     func getItems(_ item: String) {
+        viewModel.showAlert = {
+            let alert = UIAlertController(title: "Atenção!", message: "A tarefa \(item.uppercased()), já existe. Delete uma das tarefas e adicione uma nova.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+        
         DispatchQueue.main.async {
+            self.viewModel.check(item: item)
             var currentItem = UserDefaults.standard.stringArray(forKey: "items") ?? []
             currentItem.append(item)
             UserDefaults.standard.set(currentItem, forKey: "items")
