@@ -6,6 +6,7 @@ protocol MainViewModelProtocol: AnyObject {
 
 final class MainViewModel {
     private var model: [String]
+    var showAlert: (() -> Void)?
     weak var delegate: MainViewModelProtocol?
     
     init(model: [String]) {
@@ -20,19 +21,25 @@ final class MainViewModel {
         model.remove(at: index.row)
     }
 
-    func getItems(_ items: String) {
+    func defaultItems(_ items: String) {
         model.append(items)
-    }
-    
-    func displayDetailView() {
-        delegate?.goToDetatilView()
     }
     
     func display(_ items: [String]) {
         model = items
     }
     
-    func items() -> [String] {
+    func returnedItems() -> [String] {
         return model
+    }
+    
+    func displayDetailView() {
+        delegate?.goToDetatilView()
+    }
+    
+    func check(item: String) {
+        if model.contains(item) {
+            showAlert?()
+        }
     }
 }

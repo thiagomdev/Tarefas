@@ -45,7 +45,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell
         cell?.selectionStyle = .none
-        cell?.setup(from: viewModel.items()[indexPath.row])
+        cell?.setup(from: viewModel.returnedItems()[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
@@ -54,7 +54,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 self.viewModel.remove(at: indexPath)
                 self.tableView.deleteRows(at: [indexPath], with: .bottom)
-                UserDefaults.standard.set(self.viewModel.items(), forKey: "items")
+                UserDefaults.standard.set(self.viewModel.returnedItems(), forKey: "items")
                 self.tableView.reloadData()
             }
         }
@@ -63,11 +63,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: DetailViewModelProtocol {
     func getItems(_ item: String) {
+        viewModel.showAlert = {
+            let alert = UIAlertController(title: "Atenção!", message: "A tarefa \(item.uppercased()), já existe. Delete uma das tarefas e adicione uma nova.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+        
         DispatchQueue.main.async {
+            self.viewModel.check(item: item)
             var currentItem = UserDefaults.standard.stringArray(forKey: "items") ?? []
             currentItem.append(item)
             UserDefaults.standard.set(currentItem, forKey: "items")
-            self.viewModel.getItems(item)
+            self.viewModel.defaultItems(item)
             self.tableView.reloadData()
         }
     }
